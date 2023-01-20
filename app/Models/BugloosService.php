@@ -15,7 +15,7 @@ class BugloosService extends Model
     [
         ['field' =>'id', 'title'=>"شماره", "formatter" => "auto_increment",  "extra_feature" => ["model_title"  =>  "سرویسی"  ]],
         ['field'=>'serviceNames','width'=>'500', 'title'=>"نام سرویس" , 'type'=>"select2", "extra_feature" => ["distinct" => true]],
-        ["field"=>'statusCode','width'=>'300', "title"=>"شماره کد " , "type"=>"select2", "extra_feature" => ["distinct" => true]],
+        ["field"=>'statusCode','width'=>'300', "title"=>"شماره کد " , "type"=>"range_number", "extra_feature" => ["distinct" => true]],
         ["field" => 'created_at', "title" => "تاریخ ایجاد" , "type" => "range_date",],
         ["field" => 'id',"width" => "280", "title" => "عملیات" , "type" => "filter_button","formatter" => "operations",
         "formatterParams" => [

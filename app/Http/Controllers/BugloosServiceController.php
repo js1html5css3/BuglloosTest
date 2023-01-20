@@ -18,10 +18,17 @@ class BugloosServiceController extends Controller
         }
     }
 
+     //dashboard panel filtering
+     public function getData(Request $request){
+        // try{
+            return Utility::getModelData($request , new BugloosService);  
+        // } catch (\Exception $ex) {
+        //     return \App\Helpers\Utility::log($ex , false , 29);
+        // }
+    }
     
     
-    
-    
+    //api filtering 
     public function filtering(Request $request){
        $filter= BugloosService::where('id','>','0');
        if($request->has("serviceNames") && $request->serviceNames != NUll)
@@ -36,14 +43,7 @@ class BugloosServiceController extends Controller
         $data['count'] = $filter->count();
         return Response($data);
     }
-
-    public function getData(Request $request){
-        // try{
-            return Utility::getModelData($request , new BugloosService);  
-        // } catch (\Exception $ex) {
-        //     return \App\Helpers\Utility::log($ex , false , 29);
-        // }
-    }
+   
 
     /**
      * Show the form for creating a new resource.

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BugloosService;
 use Illuminate\Http\Request;
 use App\Helpers\Utility;
+use Log;
 
 class BugloosServiceController extends Controller
 {
@@ -15,6 +16,25 @@ class BugloosServiceController extends Controller
         } catch (\Exception $ex) {
             return \App\Helpers\Utility::log($ex , false , 29);
         }
+    }
+
+    
+    
+    
+    
+    public function filtering(Request $request){
+       $filter= BugloosService::where('id','>','0');
+       if($request->has("serviceNames") && $request->serviceNames != NUll)
+            $filter->where("serviceNames", 'like', '%' . $request->serviceNames . '%');
+       if($request->has("statusCode") && $request->statusCode != NUll)
+            $filter->where("statusCode",  $request->statusCode );
+       if($request->has("startDate") && $request->startDate != NUll)
+            $filter->whereDate("created_at", '>=',  $request->startDate);
+       if($request->has("endDate") && $request->endDate != NUll)
+            $filter->whereDate("created_at", '<=',  $request->endDate );
+
+        $data['count'] = $filter->count();
+        return Response($data);
     }
 
     public function getData(Request $request){

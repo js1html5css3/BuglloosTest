@@ -355,7 +355,7 @@ $(document).ready(function () {
 
         function filtered_ajax(checkfilter = true, toggle_status = null) {
             if (table != ``)
-                table.alert(`<img src='${base_url}/images/loader.gif'  style='height: 250px'><h1>لطفا منتظر بمانید . . . . </h1>`);
+                table.alert(`<img src='${base_url}/images/loader.svg'  style='width:250px;height: 250px;background-color:black;'><h1>لطفا منتظر بمانید . . . . </h1>`);
             var allFilters = [];
             data = {
                 _token: token

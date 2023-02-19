@@ -30,10 +30,19 @@
                 <a href="{{route('services.index')}}" class="nav-link">
                     <i class="nav-icon fa fa-cog"></i>
                     <p>
-                        مدیریت سرویس ها
+                        مدیریت کتاب ها
                     </p>
                 </a>
             </li>
+
+            <li class="nav-item has-treeview" >
+                <a href="{{route('logEvents.index')}}" class="nav-link">
+                    <i class="nav-icon fa fa-cog"></i>
+                    <p>لیست خطا ها</p>
+                </a>
+            </li>
+
+       
             
           </ul>
         </nav>

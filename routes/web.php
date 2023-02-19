@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\BugloosServiceController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LogEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,16 @@ use App\Http\Controllers\BugloosServiceController;
 
 
 
+Route::resource('services', BookController::class);
 Route::get('/', function () {
     return redirect(route("services.index"));
 })->name('adminlte.dashboard.index');
 Route::get('/home', function () {
     return redirect(route("services.index"));
 })->name('home');
-Route::resource('services', BugloosServiceController::class);
-Route::post("services/getData", [BugloosServiceController::class, 'getData'])->name('adminlte.services.getData');
+Route::post("services/getData", [BookController::class, 'getData'])->name('adminlte.services.getData');
+
+
+
+Route::resource('logEvents', LogEventController::class);
+Route::post("logEvents/getData", [LogEventController::class, 'getData'])->name('logEvents.getData');

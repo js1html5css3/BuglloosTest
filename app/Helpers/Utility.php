@@ -309,7 +309,7 @@ class Utility extends Controller
             $logEvent->controller_and_action_name = \Route::getCurrentRoute()->getActionName();
             $logEvent->error_message = $ex->getMessage();
             $logEvent->trace_as_string = $ex->getTraceAsString();
-            $logEvent->undertaking = $undertaking_code;
+            // $logEvent->undertaking = $undertaking_code;
             $logEvent->save();
         } else {
             logEvent::whereId($log[0]->id)->update(['count' => $log[0]->count + 1]);

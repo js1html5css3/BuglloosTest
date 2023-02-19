@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBugloosServicesTable extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBugloosServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bugloos_services', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
-
-            $table->string('serviceNames', 45)->nullable();
-            $table->integer('statusCode')->nullable();
-            $table->text('description')->nullable();
+            $table->string('name', 255)->nullable();
+            $table->string('ISBN', 45)->nullable();
+            $table->string('genre', 45)->nullable();
+            $table->text('detail')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateBugloosServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bugloos_services');
+        Schema::dropIfExists('books');
     }
 }

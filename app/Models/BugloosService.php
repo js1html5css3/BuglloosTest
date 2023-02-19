@@ -18,12 +18,12 @@ class BugloosService extends Model
         ["field"=>'statusCode','width'=>'300', "title"=>"شماره کد " , "type"=>"range_number", "extra_feature" => ["distinct" => true]],
         ["field" => 'created_at', "title" => "تاریخ ایجاد" , "type" => "range_date",],
         ["field" => 'id',"width" => "280", "title" => "عملیات" , "type" => "filter_button","formatter" => "operations",
-        "formatterParams" => [
-            "items" => [
-                
+            "formatterParams" => [
+                "items" => [
+                    
+                ]
             ]
-        ]
-    ],
+        ],
     ];
 
     public function getData(){

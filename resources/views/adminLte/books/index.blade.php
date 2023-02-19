@@ -1,11 +1,12 @@
-@component('layouts.adminLte.partials.content', ['title'=> ' سرویس ها '])
+@component('layouts.adminLte.partials.content', ['title'=> ' کتاب ها '])
     @slot('breadcrumb')
     <li class="breadcrumb-item"><a href="{{route('adminlte.dashboard.index')}}">پنل مدیریت</a></li>
-    <li class="breadcrumb-item active"> سرویس ها </li>
+    <li class="breadcrumb-item active"> کتاب ها </li>
     @endslot
     <div class="row">
       <div class="col-12">
           <div class="card">
+                <div class="btn btn-primary" >افزودن کتاب</div>
               <div class="card-body table-responsive p-0">
                   <div id="table"></div>
               </div>

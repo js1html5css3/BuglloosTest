@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BugloosService;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Helpers\Utility;
-use Log;
 
-class BugloosServiceController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
         try{
-            return view("adminLte.services.index");
+            return view("adminLte.books.index");
         } catch (\Exception $ex) {
             return \App\Helpers\Utility::log($ex , false , 29);
         }
@@ -21,7 +20,7 @@ class BugloosServiceController extends Controller
      //dashboard panel filtering
      public function getData(Request $request){
         // try{
-            return Utility::getModelData($request , new BugloosService);  
+            return Utility::getModelData($request , new Book);  
         // } catch (\Exception $ex) {
         //     return \App\Helpers\Utility::log($ex , false , 29);
         // }
@@ -30,7 +29,7 @@ class BugloosServiceController extends Controller
     
     //api filtering 
     public function filtering(Request $request){
-       $filter= BugloosService::where('id','>','0');
+       $filter= Book::where('id','>','0');
        if($request->has("serviceNames") && $request->serviceNames != NUll)
             $filter->where("serviceNames", 'like', '%' . $request->serviceNames . '%');
        if($request->has("statusCode") && $request->statusCode != NUll)
@@ -69,10 +68,10 @@ class BugloosServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BugloosService  $bugloosService
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(BugloosService $bugloosService)
+    public function show(Book $book)
     {
         //
     }
@@ -80,10 +79,10 @@ class BugloosServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BugloosService  $bugloosService
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(BugloosService $bugloosService)
+    public function edit(Book $book)
     {
         //
     }
@@ -92,10 +91,10 @@ class BugloosServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BugloosService  $bugloosService
+     * @param  \App\Models\Book  $bood
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BugloosService $bugloosService)
+    public function update(Request $request, Book $book)
     {
         //
     }
@@ -103,10 +102,10 @@ class BugloosServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BugloosService  $bugloosService
+     * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BugloosService $bugloosService)
+    public function destroy(Book $book)
     {
         //
     }
